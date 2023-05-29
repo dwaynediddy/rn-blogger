@@ -1,12 +1,10 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { sub } from 'fns-date'
 
 const initialState = [
     {
         id: '1',
-        title: 'Learning Redux Toolkit',
-        content: "I've heard good things.",
-        date: sub(new Date(), { minutes: 10 }).toISOString(),
+        title: 'first title',
+        content: "how to manage the first title",
         reactions: {
             thumbsUp: 0,
             wow: 0,
@@ -17,9 +15,8 @@ const initialState = [
     },
     {
         id: '2',
-        title: 'Slices...',
-        content: "The more I say slice, the more I want pizza.",
-        date: sub(new Date(), { minutes: 5 }).toISOString(),
+        title: 'Second title',
+        content: "react native and redux together forever",
         reactions: {
             thumbsUp: 0,
             wow: 0,
@@ -44,7 +41,6 @@ const postsSlice = createSlice({
                         id: nanoid(),
                         title,
                         content,
-                        date: new Date().toISOString(),
                         userId,
                         reactions: {
                             thumbsUp: 0,

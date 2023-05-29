@@ -6,12 +6,13 @@ import {
 } from 'react-native';
 import { Provider } from 'react-redux';
 import { store } from './src/redux/store';
+import PostsList from './src/posts/PostList';
 
 function App(): JSX.Element {
   return (
     <Provider store={store}>
       <SafeAreaView>
-        <Text> hello world </Text>
+        <PostsList />
       </SafeAreaView>
     </Provider>
   );
