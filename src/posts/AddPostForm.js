@@ -21,11 +21,7 @@ const AddPostForm = () => {
       const handleSubmit = () => {
         if(title && content) {
             dispatch(
-                postAdded({
-                    id: nanoid,
-                    title,
-                    content
-                })
+                postAdded(title, content)
             )
             setTitle("")
             setContent("")
@@ -38,12 +34,12 @@ const AddPostForm = () => {
       <TextInput 
         value={title}
         placeholder='add title'
-        onChange={handleTitleChange}
+        onChangeText={handleTitleChange}
       />
       <TextInput 
         value={content}
         placeholder='add content'
-        onChange={handleContentChange}
+        onChangeText={handleContentChange}
       />
       <Button 
         title='SUBMIT'

@@ -2,16 +2,17 @@ import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
-  Text,
 } from 'react-native';
 import { Provider } from 'react-redux';
 import { store } from './src/redux/store';
 import PostsList from './src/posts/PostList';
+import AddPostForm from './src/posts/AddPostForm';
 
 function App(): JSX.Element {
   return (
     <Provider store={store}>
       <SafeAreaView>
+        <AddPostForm />
         <PostsList />
       </SafeAreaView>
     </Provider>
