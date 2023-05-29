@@ -1,21 +1,19 @@
 import {
   SafeAreaView,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
-  View,
 } from 'react-native';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
 
 function App(): JSX.Element {
-
   return (
-    <SafeAreaView>
-      <ScrollView>
-           
-      </ScrollView>
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView>
+        <Text> hello world </Text>
+      </SafeAreaView>
+    </Provider>
   );
 }
 
