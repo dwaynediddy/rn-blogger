@@ -1,24 +1,25 @@
 import { useSelector } from "react-redux";
 import { selectAllPosts } from "./postsSlice";
-import { Text, View } from "react-native"
-import PostAuthor from "./PostsAuthor";
+import { Text, View } from "react-native";
+import PostAuthor from "./PostAuthor";
 
 const PostsList = () => {
-    const posts = useSelector(selectAllPosts)
-
-    const renderPosts = posts.map(post =>(
-        <View key={post.id}>
-            <Text>{post.title}</Text>
-            <Text>{post.content}</Text>
-            <PostAuthor userId={post.userId} />
-        </View>
-    ))
+    const posts = useSelector(selectAllPosts);
+  
+    const renderPosts = posts.map((post) => (
+      <View key={post.id}>
+        <Text>{post.title}</Text>
+        <Text>{post.content}</Text>
+        <PostAuthor userId={post.userId} />
+      </View>
+    ));
+  
     return (
-        <View>
-            <Text>Posts</Text>
-            {renderPosts}
-        </View>
-    )
-}
+      <View>
+        <Text>Posts</Text>
+        {renderPosts}
+      </View>
+    );
+  };
 
 export default PostsList;

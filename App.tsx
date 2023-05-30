@@ -11,10 +11,12 @@ import AddPostForm from './src/posts/AddPostForm';
 function App(): JSX.Element {
   return (
     <Provider store={store}>
-      <SafeAreaView>
-        <AddPostForm />
-        <PostsList />
-      </SafeAreaView>
+      <ScrollView>
+        <SafeAreaView>
+          <AddPostForm />
+          <PostsList />
+        </SafeAreaView>
+      </ScrollView>
     </Provider>
   );
 }

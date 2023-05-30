@@ -22,7 +22,7 @@ const AddPostForm = () => {
         setContent(text);
       };
       const handleAuthorChange = (value) => {
-        setUserId(value);
+        setUserId(value)
       };
 
       const handleSubmit = () => {
