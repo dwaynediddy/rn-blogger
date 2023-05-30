@@ -53,7 +53,7 @@ const AddPostForm = () => {
         selectedValue={userId}
         onValueChange={handleAuthorChange}
         >
-      <Picker.Item label="" value="" />
+      <Picker.Item label="" value={userId} />
         {usersOptions}
       </Picker>
       <TextInput 
