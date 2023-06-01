@@ -1,10 +1,12 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { sub } from 'date-fns'
 
 const initialState = [
     {
         id: '1',
         title: 'first title',
         content: "how to manage the first title",
+        date:sub(new Date(), { minutes: 10}).toISOString(),
         reactions: {
             thumbsUp: 0,
             wow: 0,
@@ -17,6 +19,7 @@ const initialState = [
         id: '2',
         title: 'Second title',
         content: "react native and redux together forever",
+        date:sub(new Date(), { minutes: 4}).toISOString(),
         reactions: {
             thumbsUp: 0,
             wow: 0,
@@ -41,6 +44,7 @@ const postsSlice = createSlice({
                         id: nanoid(),
                         title,
                         content,
+                        date: new Date().toISOString(),
                         userId,
                         reactions: {
                             thumbsUp: 0,
