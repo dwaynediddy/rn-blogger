@@ -3,6 +3,7 @@ import { selectAllPosts } from "./postsSlice";
 import { Text, View } from "react-native";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
+import ReactionButtons from "./ReactionButtons";
 
 const PostsList = () => {
     const posts = useSelector(selectAllPosts);
@@ -15,6 +16,7 @@ const PostsList = () => {
         <Text>{post.content}</Text>
         <PostAuthor userId={post.userId} />
         <TimeAgo timestamp={post.date} />
+        <ReactionButtons post={post} />
       </View>
     ));
   
