@@ -49,34 +49,34 @@ const postsSlice = createSlice({
                 existingPost.reactions[reaction]++
             }
         },
-        extraReducers(builder) {
-            builder
-            .addCase(fetchPosts.pending, (state, action) => {
-                state.status = "loading"
-            })
-            .addCase(fetchPosts.fulfilled, (state, action) => {
-                state.status = 'succeeded'
+    },
+    extraReducers(builder) {
+        builder
+        .addCase(fetchPosts.pending, (state, action) => {
+            state.status = "loading"
+        })
+        .addCase(fetchPosts.fulfilled, (state, action) => {
+            state.status = 'succeeded'
 
-                let min = 1
+            let min = 1
 
-                const loadedPosts = action.payload.map(post => {
-                    post.date = sub(new Date(),{ minutes: min++}).toISOString()
-                    post.reactions = {
-                        thumbsUp,
-                        hooray,
-                        heart,
-                        rocket,
-                        eyes
-                    }
-                    return post
-                })
-                state.posts = state.posts.concat(loadedPosts)
+            const loadedPosts = action.payload.map(post => {
+                post.date = sub(new Date(),{ minutes: min++ }).toISOString()
+                post.reactions = {
+                    thumbsUp: 0,
+                    hooray: 0,
+                    heart: 0,
+                    rocket: 0,
+                    eyes: 0
+                }
+                return post
             })
-            .addCase(fetchPosts.rejected, (state, action) => {
-                state.status = 'failed'
-                state.error = action.error.message
-            })
-        }
+            state.posts = state.posts.concat(loadedPosts)
+        })
+        .addCase(fetchPosts.rejected, (state, action) => {
+            state.status = 'failed'
+            state.error = action.error.message
+        })
     }
 })
 
